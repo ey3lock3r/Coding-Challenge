@@ -32,7 +32,8 @@ def dft(signal):
     
     return X
 
-signal = -100 + np.random.randn(10) * 100
+signal = np.random.randint(-50, 100, 50)
+#signal = range(100)
 Fouriery = dft(signal)
 circles = len(Fouriery)
 full_cyl = 2 * np.pi / circles
@@ -79,8 +80,8 @@ def updatefig(data):
         phse = Fouriery[i]['angle']
         prevx = x
         prevy = y
-        x += (tr * np.cos(freq * angle + phse + (2/np.pi)))
-        y += (tr * np.sin(freq * angle + phse + (2/np.pi)))
+        x += (tr * np.cos(freq * angle + phse + (np.pi/2)))
+        y += (tr * np.sin(freq * angle + phse + (np.pi/2)))
 
         circle_arr[i].center = (prevx, prevy)
         line_arr[i].set_data([prevx,x], [prevy,y])
@@ -95,5 +96,5 @@ def updatefig(data):
     angle += full_cyl
     return [*circle_arr, *line_arr, sine, line2]
 
-ani = animation.FuncAnimation(fig, updatefig, interval=100, blit=True)
+ani = animation.FuncAnimation(fig, updatefig, interval=200, blit=True)
 plt.show()
