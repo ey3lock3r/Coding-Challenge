@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import cmath as m
 
 fig, ax = plt.subplots()
 fig.set_dpi(1200)
@@ -34,6 +33,6 @@ mat[Z<MAX_ITER] = [1,1,1]
 
 ax.imshow(mat)
 ax.set_axis_off()
-# path = '/Users/IBM_ADMIN/Documents/Coding Challenge/Coding-Challenge/'
-plt.savefig('mandelbrot_set.svg', format='svg', dpi=1200, bbox_inches='tight')
+path = '/Users/IBM_ADMIN/Documents/Coding Challenge/Coding-Challenge/'
+plt.savefig(path + 'mandelbrot_set.svg', format='svg', dpi=1200, bbox_inches='tight')
 plt.show()
